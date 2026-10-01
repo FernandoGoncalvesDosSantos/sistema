@@ -8,19 +8,21 @@ use App\Models\ConteudoModel;
 
 class ConteudoController extends BaseController
 {
+    protected $helpers=['url'];
+
     public function index(): string
     {
         $conteudoModel = new ConteudoModel();
         $dados['conteudo'] = $conteudoModel->find(1);
         return view ('home', $dados);
     }
-    public function contato(): string
+        public function contato(): string
     {
         $conteudoModel = new ConteudoModel();
         $dados['conteudo'] = $conteudoModel->find(6);
         return view( 'contato', $dados);
     }    
-    public function fernando(): string 
+        public function fernando(): string 
     {
         $conteudoModel = new ConteudoModel();
         $dados['conteudo'] = $conteudoModel->find(5);
