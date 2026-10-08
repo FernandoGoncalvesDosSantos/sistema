@@ -1,69 +1,82 @@
-# CodeIgniter 4 Application Starter
+# 📚 Estudos de CodeIgniter 4
 
-## What is CodeIgniter?
+Repositório de estudos da disciplina **ADS209 – Desenvolvimento Web II**. O projeto parte do framework CodeIgniter 4 e registra o passo a passo das aulas, nas quais aprendi a trabalhar com o padrão MVC, models, views, banco de dados, CSS e menu de navegação.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+> O CodeIgniter 4 não é de minha autoria. Este repositório contém o framework com as alterações feitas ao acompanhar as aulas.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🛠️ Tecnologias
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- PHP
+- CodeIgniter 4
+- Composer
+- MySQL (gerenciado pelo phpMyAdmin)
+- HTML5 e CSS3
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## 📖 Aulas acompanhadas
 
-## Installation & updates
+| Aula | Tema |
+| ---- | ---- |
+| 00 | Fluxo de trabalho do CodeIgniter |
+| 01 | Introdução ao CodeIgniter: instalação, arquitetura e configuração |
+| 02 | Introdução aos Models (parte 01) |
+| 03 | Exibindo os dados do banco de dados na página |
+| 04 | Inserindo o CSS no CodeIgniter |
+| 05 | Criando o menu (parte 01) |
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## 🧩 O que aprendi
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- Entender como é a instalação, a arquitetura e a configuração do CodeIgniter 4
+- Entender o padrão MVC (Model, View, Controller) e a função de cada pasta
+- Criar models para acessar o banco de dados
+- Exibir os dados do banco em uma página
+- Incluir arquivos CSS no projeto
+- Criar um menu de navegação
 
-## Setup
+## 📂 Estrutura do projeto
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+```
+sistema/
+├── app/
+│   ├── Config/
+│   ├── Controllers/
+│   ├── Database/
+│   ├── Filters/
+│   ├── Helpers/
+│   ├── Language/
+│   ├── Libraries/
+│   ├── Models/
+│   ├── ThirdParty/
+│   └── Views/
+├── public/
+│   ├── assets/
+│   ├── favicon.ico
+│   └── index.php
+├── tests/
+├── writable/
+├── composer.json
+└── spark
+```
 
-## Important Change with index.php
+## 🖥️ Ambiente de execução
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+O projeto foi executado no servidor disponibilizado pelo professor da disciplina, com PHP e MySQL (phpMyAdmin). Não foi executado localmente.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## 🚀 Executar em outra máquina (referência)
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Passos gerais do CodeIgniter 4, não testados neste projeto:
 
-## Repository Management
+1. Instale o PHP 8.2 ou superior (com as extensões `intl`, `mbstring` e `mysqlnd`) e o [Composer](https://getcomposer.org/download/).
+2. Na pasta do projeto, rode `composer install`.
+3. Configure a conexão com o banco em `app/Config/Database.php` ou no `.env`.
+4. Rode `php spark serve` e abra o endereço que aparecer no terminal.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+> A pasta `vendor/` não está no repositório: ela é criada pelo `composer install`.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## 📜 Licença e créditos
 
-## Server Requirements
+- Framework: [CodeIgniter 4](https://codeigniter.com/), licença MIT. Veja o arquivo [LICENSE](LICENSE).
+- Passo a passo baseado no material de apoio da disciplina ADS209 – Desenvolvimento Web II.
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+## 👤 Autor
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Fernando Gonçalves dos Santos — [GitHub](https://github.com/FernandoGoncalvesDosSantos)
