@@ -5,7 +5,6 @@ h1 {
 
 
 
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,7 +20,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background-color: #1e293b;
+    background-color: #0a67fe;
     padding: 1rem 2rem;
     }
     /* Links do menu */
@@ -37,12 +36,12 @@ h1 {
     /* Efeito ao passar o mouse */
     .nav-link:hover {
     color: #ffffff;
-    background-color: #334155;
+    background-color: #f60505;
     }
     /* Estado ativo (página atual) */
     .nav-link.active {
-    color: #ffffff;
-    background-color: #0284c7;
+    color: #ff0000;
+    background-color: #e91414;
     font-weight: 600;
     }
     /* Container do conteúdo da página */
@@ -53,5 +52,5 @@ h1 {
     }
     .container h1 {
     margin-bottom: 0.75rem;
-    color: #0f172a;
+    color: #f50505;
     }    
