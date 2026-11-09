@@ -16,3 +16,17 @@ $routes->get('conteudos/editar/(:num)','conteudoController::listar/$1');
 $routes->post('conteudos/atualizar/(:num)', 'ConteudoController::atualizar/$1');
 
 service('auth')->routes($routes);
+
+//ta faltando o passo 2 da Aula 08 - Configurando o CodeIgniter Shield - Parte 2
+//--------------------------------------------------------------
+//--------------------------------------------------------------
+//falta a parte de cima
+
+// Painel: exige login e grupo admin
+$routes->get('admin', 'Admin\Painel::index', [
+ 'filter' => ['session', 'group:admin'],
+]);
+// Logout: aceita apenas usuários autenticados
+$routes->post('admin/sair', 'Admin\Painel::logout', [
+ 'filter' => 'session',
+]);

@@ -53,4 +53,13 @@ h1 {
     .container h1 {
     margin-bottom: 0.75rem;
     color: #f50505;
-    }    
+    }
+    .logout-form {
+    margin-left: auto;
+    }
+    .logout-button {
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    }
