@@ -1,5 +1,5 @@
 h1 {
-    color:brown;
+    color:rgb(0, 0, 0);
     text-align: center;
 }
 
@@ -36,12 +36,12 @@ h1 {
     /* Efeito ao passar o mouse */
     .nav-link:hover {
     color: #ffffff;
-    background-color: #f60505;
+    background-color: #1511f9;
     }
     /* Estado ativo (página atual) */
     .nav-link.active {
-    color: #ff0000;
-    background-color: #e91414;
+    color: #031cff;
+    background-color: #0015f2;
     font-weight: 600;
     }
     /* Container do conteúdo da página */
@@ -52,7 +52,7 @@ h1 {
     }
     .container h1 {
     margin-bottom: 0.75rem;
-    color: #f50505;
+    color: #f8f8f8;
     }
     .logout-form {
     margin-left: auto;
