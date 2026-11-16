@@ -1,65 +1,73 @@
 h1 {
-    color:rgb(0, 0, 0);
+    color: #000000;
     text-align: center;
 }
-
-
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    }
-    body {
+}
+
+body {
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: #fffefe;
-    color: #334155;
-    }
-    /* Container da barra de navegação */
-    .navbar {
+    background-color: #f1f5f9;
+    color: #000000;
+}
+
+/* Container da barra de navegação */
+.navbar {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background-color: #0a67fe;
+    background-color: #000000;
     padding: 1rem 2rem;
-    }
-    /* Links do menu */
-    .nav-link {
-    color: #cbd5e1;
+}
+
+/* Links do menu */
+.nav-link {
+    color: #f1f5f9;
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     transition: all 0.2s ease;
-    }
-    /* Efeito ao passar o mouse */
-    .nav-link:hover {
+}
+
+/* Efeito ao passar o mouse */
+.nav-link:hover,
+.nav-link.active:hover {
     color: #ffffff;
-    background-color: #1511f9;
-    }
-    /* Estado ativo (página atual) */
-    .nav-link.active {
-    color: #031cff;
-    background-color: #0015f2;
+    background-color: #0a67fe;
+}
+
+/* Estado ativo (página atual) */
+.nav-link.active {
+    color: #f1f5f9;
+    background-color: transparent;
     font-weight: 600;
-    }
-    /* Container do conteúdo da página */
-    .container {
+}
+
+/* Container do conteúdo da página */
+.container {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 0 1.5rem;
-    }
-    .container h1 {
+}
+
+.container h1 {
     margin-bottom: 0.75rem;
-    color: #f8f8f8;
-    }
-    .logout-form {
+    color: #000000;
+}
+
+.logout-form {
     margin-left: auto;
-    }
-    .logout-button {
+}
+
+.logout-button {
     border: 0;
     background: transparent;
     font: inherit;
     cursor: pointer;
-    }
+}

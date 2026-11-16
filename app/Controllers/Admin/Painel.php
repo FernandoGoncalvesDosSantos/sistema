@@ -5,7 +5,7 @@ class Painel extends BaseController
 {
  public function index()
  {
- return view('admin/painel');
+ return view('admin/admin');
  }
  public function logout()
  {
