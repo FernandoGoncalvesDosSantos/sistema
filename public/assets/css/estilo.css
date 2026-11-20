@@ -1,5 +1,5 @@
 h1 {
-    color: #000000;
+    color: #b1283f;
     text-align: center;
 }
 
@@ -11,54 +11,84 @@ h1 {
 
 body {
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: #f1f5f9;
-    color: #000000;
+    background-color: #fdf4f6;
+    color: #b1283f;
+    line-height: 1.6;
 }
 
 /* Container da barra de navegação */
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
-    background-color: #000000;
+    gap: 0.5rem;
+    background-color: #e10600;
     padding: 1rem 2rem;
+    border-bottom: 4px solid #b1283f;
+    box-shadow: 0 2px 8px rgba(177, 40, 63, 0.25);
 }
 
 /* Links do menu */
-.nav-link {
-    color: #f1f5f9;
+.navbar .nav-link {
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    border-radius: 999px;
+    background-color: transparent;
     transition: all 0.2s ease;
 }
 
 /* Efeito ao passar o mouse */
-.nav-link:hover,
-.nav-link.active:hover {
+.navbar .nav-link:hover {
     color: #ffffff;
-    background-color: #0a67fe;
+    background-color: #b1283f;
 }
 
 /* Estado ativo (página atual) */
-.nav-link.active {
-    color: #f1f5f9;
-    background-color: transparent;
+.navbar .nav-link.active {
+    color: #e10600;
+    background-color: #ffffff;
     font-weight: 600;
 }
 
-/* Container do conteúdo da página */
+/* Hover no link ativo: volta para o vermelho */
+.navbar .nav-link.active:hover {
+    color: #ffffff !important;
+    background-color: #e10600 !important;
+}
+
+/* Container do conteúdo da página (cartão) */
 .container {
     max-width: 1100px;
     margin: 2rem auto;
-    padding: 0 1.5rem;
+    padding: 2rem 2.5rem;
+    background-color: #ffffff;
+    border: 1px solid #f3d6dc;
+    border-top: 5px solid #e10600;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 14px rgba(177, 40, 63, 0.1);
 }
 
 .container h1 {
-    margin-bottom: 0.75rem;
-    color: #000000;
+    margin-bottom: 1.5rem;
+    color: #b1283f;
+}
+
+/* Detalhe embaixo do título */
+.container h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin: 0.5rem auto 0;
+    background-color: #e10600;
+    border-radius: 2px;
+}
+
+.container p {
+    color: #3d3d3d;
 }
 
 .logout-form {
@@ -68,6 +98,114 @@ body {
 .logout-button {
     border: 0;
     background: transparent;
+    color: #ffffff;
     font: inherit;
     cursor: pointer;
+}
+
+/* Celular */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .container {
+        margin: 1rem;
+        padding: 1.25rem;
+    }
+}
+
+/* ===== Mensagem (flash) ===== */
+.container .mensagem {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    background-color: #fdf4f6;
+    border-left: 4px solid #e10600;
+    color: #b1283f;
+    font-weight: 500;
+}
+
+/* ===== Tabela vermelha (estilo planilha) ===== */
+.tabela-wrapper {
+    overflow-x: auto;
+    border: 1px solid #d9b8bf;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background-color: #ffffff;
+}
+
+.tabela th {
+    background-color: #e10600;
+    color: #ffffff;
+    text-align: left;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #b1283f;
+    white-space: nowrap;
+}
+
+.tabela td {
+    padding: 0.5rem 0.75rem;
+    color: #3d3d3d;
+    border: 1px solid #e3cdd2;
+    vertical-align: top;
+}
+
+/* Coluna Id (como o número da linha da planilha) */
+.tabela td:first-child {
+    background-color: #fbe6ea;
+    color: #b1283f;
+    font-weight: 600;
+}
+
+.tabela th:first-child,
+.tabela td:first-child {
+    width: 60px;
+    text-align: center;
+}
+
+.tabela th:last-child,
+.tabela td:last-child {
+    width: 100px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Linhas zebradas */
+.tabela tbody tr:nth-child(even) td {
+    background-color: #fdf4f6;
+}
+
+.tabela tbody tr:nth-child(even) td:first-child {
+    background-color: #fbe6ea;
+}
+
+/* Linha ao passar o mouse */
+.tabela tbody tr:hover td {
+    background-color: #fbe6ea;
+}
+
+.tabela tbody tr:hover td:first-child {
+    background-color: #f6cfd6;
+}
+
+/* ===== Botão Editar ===== */
+.botao-editar {
+    display: inline-block;
+    background-color: #e10600;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #b1283f;
+    transition: background-color 0.2s ease;
+}
+
+.botao-editar:hover {
+    background-color: #b1283f;
 }

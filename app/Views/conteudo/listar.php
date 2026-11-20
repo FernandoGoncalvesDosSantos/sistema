@@ -31,39 +31,46 @@
 
 </nav>
 
+<main class="container">
+
     <h1>Conteúdos cadastrados</h1>
 
     <?php if ($mensagem = session()->getFlashdata('mensagem')): ?>
-        <p><?= esc($mensagem) ?></p>
+        <p class="mensagem"><?= esc($mensagem) ?></p>
     <?php endif; ?>
 
     <?php if (empty($conteudos)): ?>
         <p>Nenhum conteúdo encontrado.</p>
     <?php else: ?>
-        <table border="1" cellpadding="8">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Título</th>
-                    <th>Texto</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($conteudos as $item): ?>
+        <div class="tabela-wrapper">
+            <table class="tabela">
+                <thead>
                     <tr>
-                        <td><?= esc($item['Id']) ?></td>
-                        <td><?= esc($item['Titulo']) ?></td>
-                        <td><?= nl2br(esc($item['Texto'] ?? '')) ?></td>
-                        <td>
-                            <a href="<?= site_url('conteudos/editar/' . $item['Id']) ?>">
-                                Editar
-                            </a>
-                        </td>
+                        <th>Id</th>
+                        <th>Título</th>
+                        <th>Texto</th>
+                        <th>Ação</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($conteudos as $item): ?>
+                        <tr>
+                            <td><?= esc($item['Id']) ?></td>
+                            <td><?= esc($item['Titulo']) ?></td>
+                            <td><?= nl2br(esc($item['Texto'] ?? '')) ?></td>
+                            <td>
+                                <a href="<?= site_url('conteudos/editar/' . $item['Id']) ?>" class="botao-editar">
+                                    Editar
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     <?php endif; ?>
+
+</main>
+
 </body>
 </html>
