@@ -1,5 +1,12 @@
+/* ===== Esquema de cores do portfólio =====
+   Preto  #000                -> navbar, caixas pretas, títulos
+   Branco #fff                -> cartão do conteúdo e texto sobre preto
+   Cinza  #f2f2f2 / #ccc      -> fundo da página e bordas
+   Verde claro #d1e7dd/#badbcc -> tabelas
+*/
+
 h1 {
-    color: #b1283f;
+    color: #000;
     text-align: center;
 }
 
@@ -11,24 +18,23 @@ h1 {
 
 body {
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: #fdf4f6;
-    color: #b1283f;
+    background-color: #f2f2f2;
+    color: #212529;
     line-height: 1.6;
 }
 
-/* Container da barra de navegação */
+/* ===== Barra de navegação ===== */
 .navbar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
-    background-color: #e10600;
+    background-color: #000;
     padding: 1rem 2rem;
-    border-bottom: 4px solid #b1283f;
-    box-shadow: 0 2px 8px rgba(177, 40, 63, 0.25);
+    border-bottom: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* Links do menu */
 .navbar .nav-link {
     color: #ffffff;
     text-decoration: none;
@@ -40,57 +46,188 @@ body {
     transition: all 0.2s ease;
 }
 
-/* Efeito ao passar o mouse */
 .navbar .nav-link:hover {
     color: #ffffff;
-    background-color: #b1283f;
+    background-color: #333;
 }
 
-/* Estado ativo (página atual) */
 .navbar .nav-link.active {
-    color: #e10600;
+    color: #000;
     background-color: #ffffff;
     font-weight: 600;
 }
 
-/* Hover no link ativo: volta para o vermelho */
 .navbar .nav-link.active:hover {
     color: #ffffff !important;
-    background-color: #e10600 !important;
+    background-color: #333 !important;
 }
 
-/* Container do conteúdo da página (cartão) */
+/* ===== Cartão do conteúdo ===== */
 .container {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 2rem 2.5rem;
     background-color: #ffffff;
-    border: 1px solid #f3d6dc;
-    border-top: 5px solid #e10600;
+    border: 1px solid #ccc;
+    border-top: 5px solid #000;
     border-radius: 0.75rem;
-    box-shadow: 0 4px 14px rgba(177, 40, 63, 0.1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 .container h1 {
     margin-bottom: 1.5rem;
-    color: #b1283f;
+    color: #000;
 }
 
-/* Detalhe embaixo do título */
 .container h1::after {
     content: "";
     display: block;
     width: 60px;
     height: 4px;
     margin: 0.5rem auto 0;
-    background-color: #e10600;
+    background-color: #000;
     border-radius: 2px;
 }
 
 .container p {
-    color: #3d3d3d;
+    color: #212529;
 }
 
+/* O texto vem dentro de um <p> na view; este <p> vazio sobra no final */
+.container p:empty {
+    display: none;
+}
+
+.container ul {
+    margin: 0 0 1rem 2rem;
+}
+
+.container li {
+    margin-bottom: 0.25rem;
+}
+
+/* ===== Caixa preta (home e contato) ===== */
+.container .caixa-preta {
+    background-color: #000;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.container .caixa-preta h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.container .caixa-preta p {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.container .caixa-preta h2:last-child,
+.container .caixa-preta p:last-child {
+    margin-bottom: 0;
+}
+
+.container .caixa-preta hr {
+    border: 0;
+    border-top: 1px solid #666;
+    margin: 1.5rem 0;
+}
+
+.container .caixa-preta .redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.container .caixa-preta .rede-link {
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    border-radius: 999px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.container .caixa-preta .rede-link:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* ===== Textos da home ===== */
+.container .chamada {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.container .apresentacao {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.container .topicos-titulo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== Página Fernando (Minha História) ===== */
+.tabela-rolagem {
+    overflow-x: auto;
+}
+
+.tabela-historia {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #d1e7dd;
+    color: #000;
+}
+
+.tabela-historia th,
+.tabela-historia td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem;
+    border-bottom: 1px solid #a7b5ae;
+}
+
+.tabela-historia tbody tr:nth-child(odd) th,
+.tabela-historia tbody tr:nth-child(odd) td {
+    background-color: #c7dbd2;
+}
+
+.container .trajetoria {
+    margin-top: 3rem;
+}
+
+.container .trajetoria h2 {
+    color: #000;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.container .trajetoria .texto {
+    max-width: 75%;
+}
+
+.container .trajetoria .texto p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.container .trajetoria .texto p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Sair (logout) ===== */
 .logout-form {
     margin-left: auto;
 }
@@ -103,32 +240,20 @@ body {
     cursor: pointer;
 }
 
-/* Celular */
-@media (max-width: 600px) {
-    .navbar {
-        padding: 0.75rem 1rem;
-    }
-
-    .container {
-        margin: 1rem;
-        padding: 1.25rem;
-    }
-}
-
 /* ===== Mensagem (flash) ===== */
 .container .mensagem {
     margin-bottom: 1.25rem;
     padding: 0.75rem 1rem;
-    background-color: #fdf4f6;
-    border-left: 4px solid #e10600;
-    color: #b1283f;
+    background-color: #f2f2f2;
+    border-left: 4px solid #000;
+    color: #000;
     font-weight: 500;
 }
 
-/* ===== Tabela vermelha (estilo planilha) ===== */
+/* ===== Tabela da listagem de conteúdos ===== */
 .tabela-wrapper {
     overflow-x: auto;
-    border: 1px solid #d9b8bf;
+    border: 1px solid #ccc;
 }
 
 .tabela {
@@ -139,26 +264,25 @@ body {
 }
 
 .tabela th {
-    background-color: #e10600;
+    background-color: #000;
     color: #ffffff;
     text-align: left;
     font-weight: 600;
     padding: 0.5rem 0.75rem;
-    border: 1px solid #b1283f;
+    border: 1px solid #333;
     white-space: nowrap;
 }
 
 .tabela td {
     padding: 0.5rem 0.75rem;
-    color: #3d3d3d;
-    border: 1px solid #e3cdd2;
+    color: #212529;
+    border: 1px solid #ddd;
     vertical-align: top;
 }
 
-/* Coluna Id (como o número da linha da planilha) */
 .tabela td:first-child {
-    background-color: #fbe6ea;
-    color: #b1283f;
+    background-color: #f2f2f2;
+    color: #000;
     font-weight: 600;
 }
 
@@ -175,37 +299,365 @@ body {
     white-space: nowrap;
 }
 
-/* Linhas zebradas */
 .tabela tbody tr:nth-child(even) td {
-    background-color: #fdf4f6;
+    background-color: #f8f9fa;
 }
 
 .tabela tbody tr:nth-child(even) td:first-child {
-    background-color: #fbe6ea;
+    background-color: #f2f2f2;
 }
 
-/* Linha ao passar o mouse */
 .tabela tbody tr:hover td {
-    background-color: #fbe6ea;
+    background-color: #d1e7dd;
 }
 
 .tabela tbody tr:hover td:first-child {
-    background-color: #f6cfd6;
+    background-color: #badbcc;
 }
 
 /* ===== Botão Editar ===== */
 .botao-editar {
     display: inline-block;
-    background-color: #e10600;
+    background-color: #000;
     color: #ffffff;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.25rem 0.75rem;
-    border: 1px solid #b1283f;
+    border: 1px solid #000;
     transition: background-color 0.2s ease;
 }
 
 .botao-editar:hover {
-    background-color: #b1283f;
+    background-color: #333;
+}
+
+/* ===== Telas menores ===== */
+@media (max-width: 992px) {
+    .container .trajetoria .texto {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .container {
+        margin: 1rem;
+        padding: 1.25rem;
+    }
+
+    .container .chamada {
+        font-size: 1.5rem;
+    }
+
+    .container .apresentacao {
+        font-size: 1.25rem;
+    }
+}
+
+
+
+
+
+/* ===== Página Quem sou ===== */
+.container .secao {
+    margin-bottom: 2rem;
+}
+
+.container .secao h2 {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.container .secao h3 {
+    color: #198754;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.container .secao p {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.container .secao p:last-child {
+    margin-bottom: 0;
+}
+
+.container .secao ul {
+    list-style-type: square;
+    margin: 0 0 0 2rem;
+}
+
+.container .secao li {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.container .frase-destaque {
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    background-color: #f2f2f2;
+    border-left: 4px solid #000;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.125rem;
+    color: #000;
+}
+
+.tabela-rolagem {
+    margin-bottom: 2rem;
+}
+
+.container .caixa-cinza {
+    background-color: #f2f2f2;
+    padding: 1.25rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+.container .caixa-cinza h3 {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.container .caixa-cinza p {
+    font-size: 1.125rem;
+    margin-bottom: 0;
+}
+
+
+
+
+
+/* ===== Página Produtos ===== */
+.container .produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.container .produto {
+    background-color: #f2f2f2;
+    padding: 1.25rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.container .produto h3 {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.container .produto p {
+    font-size: 1.0625rem;
+    margin-bottom: 1rem;
+}
+
+.container .produto .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.container .produto .tag {
+    background-color: #000;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+}
+
+
+/* ===== Cartões (estilo da página Produtos nas outras páginas) ===== */
+.container .produtos.compactos {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.container .produto p:last-child {
+    margin-bottom: 0;
+}
+
+.container .produto a {
+    color: #000;
+    font-weight: 600;
+}
+
+.container .produto a:hover {
+    color: #198754;
+}
+
+.container .titulo-cartoes {
+    color: #000;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.container .produtos + .secao,
+.container .produtos + .titulo-cartoes,
+.container .produtos + .caixa-cinza {
+    margin-top: 2rem;
+}
+
+
+
+
+
+
+/* ===== Painel: tabela de conteúdos ===== */
+.tabela-estilizada {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.tabela-estilizada thead tr {
+    background-color: #000;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.tabela-estilizada th,
+.tabela-estilizada td {
+    padding: 12px 15px;
+    vertical-align: top;
+}
+
+.tabela-estilizada tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tabela-estilizada tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tabela-estilizada tbody tr:last-of-type {
+    border-bottom: 2px solid #000;
+}
+
+.tabela-estilizada tbody tr:hover {
+    background-color: #d1e7dd;
+}
+
+/* ===== Painel: formulário de edição ===== */
+.form-conteudo {
+    width: min(100% - 32px, 680px);
+    margin: 40px auto;
+    padding: 32px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.form-conteudo__campo {
+    margin-bottom: 22px;
+}
+
+.form-conteudo__label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.form-conteudo__input,
+.form-conteudo__textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    color: #212529;
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-conteudo__input:focus,
+.form-conteudo__textarea:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.form-conteudo__textarea {
+    min-height: 320px;
+    resize: vertical;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+}
+
+.form-conteudo__acoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.form-conteudo__botao,
+.form-conteudo__cancelar {
+    display: inline-block;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.form-conteudo__botao {
+    border: none;
+    background-color: #000;
+    color: #fff;
+}
+
+.form-conteudo__botao:hover {
+    background-color: #333;
+}
+
+.form-conteudo__cancelar {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #212529;
+}
+
+.form-conteudo__cancelar:hover {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 480px) {
+    .form-conteudo {
+        padding: 22px;
+    }
+
+    .form-conteudo__acoes {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .form-conteudo__botao,
+    .form-conteudo__cancelar {
+        text-align: center;
+    }
 }

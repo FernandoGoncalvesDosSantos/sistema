@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conteúdos</title>
-    <link rel="stylesheet" href="<?= base_url('assets/css/estilo.css') ?>">
+<?= $this->extend('admin/main') ?>
 
-</head>
-<body>
-
-<nav class="navbar">
-
-<a href="<?= site_url('admin') ?>" class="nav-link active">
-    Painel
-</a>
-
-<a href="<?= site_url('conteudos') ?>" class="nav-link">
-    Conteúdos
-</a>
-
-<form action="<?= site_url('admin/sair') ?>" method="post" class="logout-form">
-
-    <?= csrf_field() ?>
-
-    <button type="submit" class="nav-link logout-button">
-        Sair
-    </button>
-
-</form>
-
-</nav>
-
-<main class="container">
+<?= $this->section('conteudo') ?>
 
     <h1>Conteúdos cadastrados</h1>
 
@@ -42,35 +11,30 @@
     <?php if (empty($conteudos)): ?>
         <p>Nenhum conteúdo encontrado.</p>
     <?php else: ?>
-        <div class="tabela-wrapper">
-            <table class="tabela">
-                <thead>
+        <table class="tabela-estilizada">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Texto</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($conteudos as $item): ?>
                     <tr>
-                        <th>Id</th>
-                        <th>Título</th>
-                        <th>Texto</th>
-                        <th>Ação</th>
+                        <td><?= esc($item['Id']) ?></td>
+                        <td><?= esc($item['Titulo']) ?></td>
+                        <td><?= esc(mb_strimwidth($item['Texto'] ?? '', 0, 120, '…')) ?></td>
+                        <td>
+                            <a href="<?= site_url('conteudos/editar/' . $item['Id']) ?>" class="botao-editar">
+                                Editar
+                            </a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($conteudos as $item): ?>
-                        <tr>
-                            <td><?= esc($item['Id']) ?></td>
-                            <td><?= esc($item['Titulo']) ?></td>
-                            <td><?= nl2br(esc($item['Texto'] ?? '')) ?></td>
-                            <td>
-                                <a href="<?= site_url('conteudos/editar/' . $item['Id']) ?>" class="botao-editar">
-                                    Editar
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     <?php endif; ?>
 
-</main>
-
-</body>
-</html>
+<?= $this->endSection() ?>
